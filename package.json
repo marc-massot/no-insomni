@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start-pwa": "ng build && http-server -p 8080 -c-1 dist/no-insomni",
+    "predeploy": "ng build --configuration production --base-href=/no-insomni/",
+    "deploy": "npx gh-pages -d dist/no-insomni"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +31,7 @@
     "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "^16.2.0",
     "@types/jasmine": "~4.3.0",
+    "http-server": "^14.1.1",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
