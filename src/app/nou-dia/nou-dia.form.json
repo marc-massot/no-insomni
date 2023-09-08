@@ -1,0 +1,189 @@
+{
+    "display": "wizard",
+    "settings": {
+        "pdf": {
+            "id": "1ec0f8ee-6685-5d98-a847-26f67b67d6f0",
+            "src": "https://files.form.io/pdf/5692b91fd1028f01000407e3/file/1ec0f8ee-6685-5d98-a847-26f67b67d6f0"
+        }
+    },
+    "components": [
+        {
+            "title": "Page 1",
+            "label": "Page 1",
+            "type": "panel",
+            "key": "page1",
+            "components": [
+                {
+                    "label": "Mútiples respostes",
+                    "optionsLabelPosition": "right",
+                    "tableView": false,
+                    "values": [
+                        {
+                            "label": "opció 1",
+                            "value": "opcio1",
+                            "shortcut": ""
+                        },
+                        {
+                            "label": "opció 2",
+                            "value": "opcio2",
+                            "shortcut": ""
+                        },
+                        {
+                            "label": "opció 3",
+                            "value": "opcio3",
+                            "shortcut": ""
+                        }
+                    ],
+                    "key": "mutiplesRespostes",
+                    "type": "selectboxes",
+                    "input": true,
+                    "inputType": "checkbox"
+                }
+            ],
+            "input": false,
+            "tableView": false
+        },
+        {
+            "title": "Page 2",
+            "label": "Page 2",
+            "type": "panel",
+            "key": "page2",
+            "components": [
+                {
+                    "label": "Única resposta",
+                    "optionsLabelPosition": "right",
+                    "inline": false,
+                    "tableView": false,
+                    "values": [
+                        {
+                            "label": "Opció 1",
+                            "value": "opcio1",
+                            "shortcut": ""
+                        },
+                        {
+                            "label": "Opció 2",
+                            "value": "opcio2",
+                            "shortcut": ""
+                        },
+                        {
+                            "label": "Opció 3",
+                            "value": "opcio3",
+                            "shortcut": ""
+                        }
+                    ],
+                    "key": "unicaResposta",
+                    "type": "radio",
+                    "input": true
+                }
+            ],
+            "input": false,
+            "tableView": false
+        },
+        {
+            "title": "Page 3",
+            "label": "Page 3",
+            "type": "panel",
+            "key": "page3",
+            "components": [
+                {
+                    "label": "Varies preguntes amb mateixa resposta",
+                    "tableView": false,
+                    "questions": [
+                        {
+                            "label": "Pregunta 1",
+                            "value": "pregunta1",
+                            "tooltip": ""
+                        },
+                        {
+                            "label": "Pregunta 2",
+                            "value": "pregunta2",
+                            "tooltip": ""
+                        },
+                        {
+                            "label": "Pregunta 3",
+                            "value": "pregunta3",
+                            "tooltip": ""
+                        }
+                    ],
+                    "values": [
+                        {
+                            "label": "Opció 1",
+                            "value": "opcio1",
+                            "tooltip": ""
+                        },
+                        {
+                            "label": "Opció 2",
+                            "value": "opcio2",
+                            "tooltip": ""
+                        },
+                        {
+                            "label": "Opció 3",
+                            "value": "opcio3",
+                            "tooltip": ""
+                        }
+                    ],
+                    "key": "variesPreguntesAmbMateixaResposta",
+                    "type": "survey",
+                    "input": true
+                }
+            ],
+            "input": false,
+            "tableView": false
+        },
+        {
+            "title": "Page 4",
+            "label": "Page 4",
+            "type": "panel",
+            "key": "page4",
+            "components": [
+                {
+                    "label": "Pregunta",
+                    "optionsLabelPosition": "right",
+                    "inline": false,
+                    "tableView": false,
+                    "values": [
+                        {
+                            "label": "A",
+                            "value": "a",
+                            "shortcut": ""
+                        },
+                        {
+                            "label": "B",
+                            "value": "b",
+                            "shortcut": ""
+                        },
+                        {
+                            "label": "C",
+                            "value": "c",
+                            "shortcut": ""
+                        }
+                    ],
+                    "key": "pregunta",
+                    "type": "radio",
+                    "input": true
+                }
+            ],
+            "input": false,
+            "tableView": false
+        },
+        {
+            "title": "Page 5",
+            "label": "Page 5",
+            "type": "panel",
+            "key": "page5",
+            "components": [
+                {
+                    "label": "Hora",
+                    "inputMask": "99:99",
+                    "applyMaskOn": "change",
+                    "tableView": true,
+                    "key": "hora",
+                    "type": "textfield",
+                    "input": true
+                }
+            ],
+            "input": false,
+            "tableView": false
+        }
+    ]
+}

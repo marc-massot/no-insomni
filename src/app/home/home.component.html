@@ -1,0 +1,88 @@
+<div class="row row-cols-1 row-cols-sm-2 inici">
+    <div class="inici-superior col m-0 border-0">
+        <div class="position-relative">
+            <div class="position-absolute top-0 h-100 start-50 translate-middle-x">
+                <canvas baseChart class="chart" [data]="doughnutChartData" type="doughnut"
+                    [options]="doughnutChartOptions">
+                </canvas>
+            </div>
+            <div class="centre position-absolute top-50 start-50 translate-middle">
+                <div class="puntuacio fs-1">
+                    {{ puntuacio | number: '1.1-1' }} <span class="sobre fs-5"> / 50</span>
+                </div>
+
+                <div class="dies w-100 text-center fs-6">
+                    {{ numDies }}
+                    <span *ngIf="numDies > 1">dies</span>
+                    <span *ngIf="numDies == 1">dia</span>
+                    <span *ngIf="numDies == 0">dies</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="container">
+            <div class="x_panel row">
+                <div class="col">
+                    <div class="container score-week">
+                        <div class="row score-days row-cols-7" (touchstart)="swipe($event, 'start')"
+                            (touchend)="swipe($event, 'end')">
+                            <div class="col">
+                                <div class="daily-score">
+                                    <h2 class="day">Dl <em>{{ setmana && setmana.dl? setmana.dl.dia.slice(8,10): "" }}</em></h2>
+                                    <h3 class="score">{{ setmana && setmana.dl && setmana.dl.score>0? setmana?.dl?.score: "-" }}</h3>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="daily-score">
+                                    <h2 class="day">Dm <em>{{ setmana && setmana.dm? setmana.dm.dia.slice(8,10): "" }}</em></h2>
+                                    <h3 class="score">{{ setmana && setmana.dm && setmana.dm.score>0? setmana?.dm?.score: "-" }}</h3>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="daily-score">
+                                    <h2 class="day">Dc <em>{{ setmana && setmana.dc? setmana.dc.dia.slice(8,10): "" }}</em></h2>
+                                    <h3 class="score">{{ setmana && setmana.dc && setmana.dc.score>0? setmana?.dc?.score: "-" }}</h3>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="daily-score">
+                                    <h2 class="day">Dj <em>{{ setmana && setmana.dj? setmana.dj.dia.slice(8,10): "" }}</em></h2>
+                                    <h3 class="score">{{ setmana && setmana.dj && setmana.dj.score>0? setmana?.dj?.score: "-" }}</h3>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="daily-score">
+                                    <h2 class="day">Dv <em>{{ setmana && setmana.dv? setmana.dv.dia.slice(8,10): "" }}</em></h2>
+                                    <h3 class="score">{{ setmana && setmana.dv && setmana.dv.score>0? setmana?.dv?.score: "-" }}</h3>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="daily-score">
+                                    <h2 class="day">Ds <em>{{ setmana && setmana.ds? setmana.ds.dia.slice(8,10): "" }}</em></h2>
+                                    <h3 class="score">{{ setmana && setmana.ds && setmana.ds.score>0? setmana?.ds?.score: "-" }}</h3>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="daily-score">
+                                    <h2 class="day">Dg <em>{{ setmana && setmana.dg? setmana.dg.dia.slice(8,10): "" }}</em></h2>
+                                    <h3 class="score">{{ setmana && setmana.dg && setmana.dg.score>0? setmana?.dg?.score: "-" }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x_panel_buttons row text-center">
+                <div class="col text-end">
+                    <button type="button" class="btn btn-outline-primary btn-sm" (click)="anteriorSetmana()"
+                        [disabled]="!teAnterior">&lt;</button>
+                </div>
+                <div class="col text-start">
+                    <button type="button" class="btn btn-outline-primary btn-sm" (click)="seguentSetmana()"
+                        [disabled]="!teSeguent">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
