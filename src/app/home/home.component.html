@@ -6,17 +6,23 @@
                     [options]="doughnutChartOptions">
                 </canvas>
             </div>
-            <div class="centre position-absolute top-50 start-50 translate-middle">
-                <div class="puntuacio fs-1">
-                    {{ puntuacio | number: '1.1-1' }} <span class="sobre fs-5"> / 50</span>
+            <div *ngIf="numDies < minDies " class="centre position-absolute top-50 start-50 translate-middle">
+                <div class="puntuacio fs-1 text-center">
+                    {{ numDies }} <span class="sobre fs-5">dies</span>
                 </div>
 
                 <div class="dies w-100 text-center fs-6">
-                    {{ numDies }}
-                    <span *ngIf="numDies > 1">dies</span>
-                    <span *ngIf="numDies == 1">dia</span>
-                    <span *ngIf="numDies == 0">dies</span>
+                    Encara cal registrar   
+                    <span *ngIf="numDies < minDies - 1 ">{{ 30 - numDies }} dies</span>
+                    <span *ngIf="numDies == minDies - 1 ">un dia més</span>
+                    per veure el diagnosis
                 </div>
+            </div>
+            <div *ngIf="numDies >= minDies"  class="centre position-absolute top-50 start-50 translate-middle">
+                <div class="puntuacio fs-1 text-center">
+                    {{ puntuacio*100/50 | number: '1.1-1' }} <span class="sobre fs-5">%</span>
+                </div>
+                <div class="dies w-100 text-center fs-6">Després de {{ numDies }} dies registrats</div>
             </div>
         </div>
     </div>
@@ -30,43 +36,43 @@
                             <div class="col">
                                 <div class="daily-score">
                                     <h2 class="day">Dl <em>{{ setmana && setmana.dl? setmana.dl.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score">{{ setmana && setmana.dl && setmana.dl.score>0? setmana?.dl?.score: "-" }}</h3>
+                                    <h3 class="score"><img *ngIf="setmana && setmana.dl && setmana.dl.score > 0" style="width: 30px" src="assets/face-{{setmana.dl.score}}.png"/><span *ngIf="setmana && setmana.dl && setmana.dl.score == 0">-</span></h3>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="daily-score">
                                     <h2 class="day">Dm <em>{{ setmana && setmana.dm? setmana.dm.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score">{{ setmana && setmana.dm && setmana.dm.score>0? setmana?.dm?.score: "-" }}</h3>
+                                    <h3 class="score"><img *ngIf="setmana && setmana.dm && setmana.dm.score > 0" style="width: 30px" src="assets/face-{{setmana.dm.score}}.png"/><span *ngIf="setmana && setmana.dm && setmana.dm.score == 0">-</span></h3>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="daily-score">
                                     <h2 class="day">Dc <em>{{ setmana && setmana.dc? setmana.dc.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score">{{ setmana && setmana.dc && setmana.dc.score>0? setmana?.dc?.score: "-" }}</h3>
+                                    <h3 class="score"><img *ngIf="setmana && setmana.dc && setmana.dc.score > 0" style="width: 30px" src="assets/face-{{setmana.dc.score}}.png"/><span *ngIf="setmana && setmana.dc && setmana.dc.score == 0">-</span></h3>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="daily-score">
                                     <h2 class="day">Dj <em>{{ setmana && setmana.dj? setmana.dj.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score">{{ setmana && setmana.dj && setmana.dj.score>0? setmana?.dj?.score: "-" }}</h3>
+                                    <h3 class="score"><img *ngIf="setmana && setmana.dj && setmana.dj.score > 0" style="width: 30px" src="assets/face-{{setmana.dj.score}}.png"/><span *ngIf="setmana && setmana.dj && setmana.dj.score == 0">-</span></h3>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="daily-score">
                                     <h2 class="day">Dv <em>{{ setmana && setmana.dv? setmana.dv.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score">{{ setmana && setmana.dv && setmana.dv.score>0? setmana?.dv?.score: "-" }}</h3>
+                                    <h3 class="score"><img *ngIf="setmana && setmana.dv && setmana.dv.score > 0" style="width: 30px" src="assets/face-{{setmana.dv.score}}.png"/><span *ngIf="setmana && setmana.dv && setmana.dv.score == 0">-</span></h3>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="daily-score">
                                     <h2 class="day">Ds <em>{{ setmana && setmana.ds? setmana.ds.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score">{{ setmana && setmana.ds && setmana.ds.score>0? setmana?.ds?.score: "-" }}</h3>
+                                    <h3 class="score"><img *ngIf="setmana && setmana.ds && setmana.ds.score > 0" style="width: 30px" src="assets/face-{{setmana.ds.score}}.png"/><span *ngIf="setmana && setmana.ds && setmana.ds.score == 0">-</span></h3>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="daily-score">
                                     <h2 class="day">Dg <em>{{ setmana && setmana.dg? setmana.dg.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score">{{ setmana && setmana.dg && setmana.dg.score>0? setmana?.dg?.score: "-" }}</h3>
+                                    <h3 class="score"><img *ngIf="setmana && setmana.dg && setmana.dg.score > 0" style="width: 30px" src="assets/face-{{setmana.dg.score}}.png"/><span *ngIf="setmana && setmana.dg && setmana.dg.score == 0">-</span></h3>
                                 </div>
                             </div>
                         </div>

@@ -67,7 +67,7 @@ export class DiesService {
   }
 
   private calculaScore(formData: any): number {
-    return Math.floor(Math.random() * (50 - 1 + 1) + 1);
+    return Math.floor(Math.random() * (5 - 1 + 1) + 1);
   }
 
   public avui(): string {

@@ -38,6 +38,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private diesService: DiesService) {}
 
+  minDies = 30;
+
   ngOnInit(): void {
     this.numDies = this.diesService.quantsDies();
     this.puntuacio = this.diesService.avgScore();
@@ -48,25 +50,60 @@ export class HomeComponent implements OnInit {
     this.avui = this.diesService.avui();
     this.teAnterior = this.minDia < this.setmana.dl.dia;
     this.teSeguent = this.maxDia > this.setmana.dg.dia;
-    this.doughnutChartOptions = {
+    if (this.numDies<this.minDies) {
+      this.doughnutChartOptions = this.chartOptionsDies();
+      this.doughnutChartData = this.chartDataDies();
+    }
+    else {
+      this.doughnutChartOptions = this.chartOptionsPuntuacio();
+      this.doughnutChartData = this.chartDataPuntuacio();
+    }
+  }
+
+  private chartOptionsPuntuacio(): ChartOptions<'doughnut'> {
+    return {
       plugins: {
         legend: {
           display: false
         }
       },
-      cutout: "75%",
-      circumference: this.puntuacio*360/50
+      cutout: "75%"
     };
-    this.doughnutChartData = {
+  }
+
+  private chartDataPuntuacio(): ChartData<'doughnut'> {
+    return {
       labels: ['Dades'],
       datasets: [
-        { data: [this.puntuacio],
-          backgroundColor: ["red"] },
+        { data: [this.puntuacio,50-this.puntuacio],
+          backgroundColor: ["red","rgb(240,240,240)"] },
       ],
       
     };
   }
 
+  private chartOptionsDies(): ChartOptions<'doughnut'> {
+    return {
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      cutout: "75%"
+    };
+  }
+
+  private chartDataDies(): ChartData<'doughnut'> {
+    return {
+      labels: ['Dades'],
+      datasets: [
+        { data: [this.numDies,30-this.numDies],
+          backgroundColor: ["green","rgb(240,240,240)"] },
+      ],
+      
+    };
+  }
+  
   seguentSetmana() {
     if (this.teSeguent) {
       this.quinaSetmana++;
