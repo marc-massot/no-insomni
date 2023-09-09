@@ -3,184 +3,1012 @@
 </ngb-alert>
 <formio [form]='{
     "display": "wizard",
+"components": [
+  {
+    "title": "p1",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "P1",
+    "type": "panel",
+    "label": "Page 2",
     "components": [
-        {
-            "title": "Page 1",
-            "label": "Page 1",
-            "type": "panel",
-            "key": "page1",
-            "components": [
-                {
-                    "label": "Mútiples respostes",
-                    "optionsLabelPosition": "right",
-                    "tableView": false,
-                    "values": [
-                        {
-                            "label": "opció 1",
-                            "value": "opcio1",
-                            "shortcut": ""
-                        },
-                        {
-                            "label": "opció 2",
-                            "value": "opcio2",
-                            "shortcut": ""
-                        },
-                        {
-                            "label": "opció 3",
-                            "value": "opcio3",
-                            "shortcut": ""
-                        }
-                    ],
-                    "key": "mutiplesRespostes",
-                    "type": "selectboxes",
-                    "input": true,
-                    "inputType": "checkbox"
-                }
-            ],
-            "input": false,
-            "tableView": false
+      {
+        "label": "Com de satisfet estàs amb el teu son?",
+        "optionsLabelPosition": "right",
+        "inline": false,
+        "tableView": false,
+        "values": [
+          {
+            "label": "Molt satisfet",
+            "value": "1",
+            "shortcut": ""
+          },
+          {
+            "label": "Satisfet",
+            "value": "2",
+            "shortcut": ""
+          },
+          {
+            "label": "Mig",
+            "value": "3",
+            "shortcut": ""
+          },
+          {
+            "label": "Insatisfet",
+            "value": "4",
+            "shortcut": ""
+          },
+          {
+            "label": "Molt insatisfet",
+            "value": "5",
+            "shortcut": ""
+          }
+        ],
+        "validate": {
+          "required": true
         },
-        {
-            "title": "Page 2",
-            "label": "Page 2",
-            "type": "panel",
-            "key": "page2",
-            "components": [
-                {
-                    "label": "Única resposta",
-                    "optionsLabelPosition": "right",
-                    "inline": false,
-                    "tableView": false,
-                    "values": [
-                        {
-                            "label": "Opció 1",
-                            "value": "opcio1",
-                            "shortcut": ""
-                        },
-                        {
-                            "label": "Opció 2",
-                            "value": "opcio2",
-                            "shortcut": ""
-                        },
-                        {
-                            "label": "Opció 3",
-                            "value": "opcio3",
-                            "shortcut": ""
-                        }
-                    ],
-                    "key": "unicaResposta",
-                    "type": "radio",
-                    "input": true
-                }
-            ],
-            "input": false,
-            "tableView": false
+        "key": "unicaResposta",
+        "type": "radio",
+        "input": true
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "p2",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page7",
+    "type": "panel",
+    "label": "Page 7",
+    "components": [
+      {
+        "label": "Quan de temps has trigat a adormir-te?",
+        "optionsLabelPosition": "right",
+        "inline": false,
+        "tableView": false,
+        "values": [
+          {
+            "label": "0-15 minuts",
+            "value": "1",
+            "shortcut": ""
+          },
+          {
+            "label": "16-30 minuts",
+            "value": "2",
+            "shortcut": ""
+          },
+          {
+            "label": "31-45 minuts",
+            "value": "3",
+            "shortcut": ""
+          },
+          {
+            "label": "46-60 minuts",
+            "value": "4",
+            "shortcut": ""
+          },
+          {
+            "label": "mes de 60 minuts",
+            "value": "5",
+            "shortcut": ""
+          }
+        ],
+        "validate": {
+          "required": true
         },
-        {
-            "title": "Page 3",
-            "label": "Page 3",
-            "type": "panel",
-            "key": "page3",
-            "components": [
-                {
-                    "label": "Varies preguntes amb mateixa resposta",
-                    "tableView": false,
-                    "questions": [
-                        {
-                            "label": "Pregunta 1",
-                            "value": "pregunta1",
-                            "tooltip": ""
-                        },
-                        {
-                            "label": "Pregunta 2",
-                            "value": "pregunta2",
-                            "tooltip": ""
-                        },
-                        {
-                            "label": "Pregunta 3",
-                            "value": "pregunta3",
-                            "tooltip": ""
-                        }
-                    ],
-                    "values": [
-                        {
-                            "label": "Opció 1",
-                            "value": "opcio1",
-                            "tooltip": ""
-                        },
-                        {
-                            "label": "Opció 2",
-                            "value": "opcio2",
-                            "tooltip": ""
-                        },
-                        {
-                            "label": "Opció 3",
-                            "value": "opcio3",
-                            "tooltip": ""
-                        }
-                    ],
-                    "key": "variesPreguntesAmbMateixaResposta",
-                    "type": "survey",
-                    "input": true
-                }
-            ],
-            "input": false,
-            "tableView": false
+        "key": "quanDeTempsHasTrigatAAdormirTe",
+        "type": "radio",
+        "input": true
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "p3",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page4",
+    "type": "panel",
+    "label": "Page 4",
+    "components": [
+      {
+        "label": "Quantes vegades t&apos;has despertat durant la nit?",
+        "optionsLabelPosition": "right",
+        "inline": false,
+        "tableView": false,
+        "values": [
+          {
+            "label": "Cap",
+            "value": "1",
+            "shortcut": ""
+          },
+          {
+            "label": "1 vegada",
+            "value": "2",
+            "shortcut": ""
+          },
+          {
+            "label": "2 vegades",
+            "value": "3",
+            "shortcut": ""
+          },
+          {
+            "label": "3 vegades",
+            "value": "4",
+            "shortcut": ""
+          },
+          {
+            "label": "mes de 3 vegades",
+            "value": "5",
+            "shortcut": ""
+          }
+        ],
+        "validate": {
+          "required": true
         },
-        {
-            "title": "Page 4",
-            "label": "Page 4",
-            "type": "panel",
-            "key": "page4",
-            "components": [
-                {
-                    "label": "Pregunta",
-                    "optionsLabelPosition": "right",
-                    "inline": false,
-                    "tableView": false,
-                    "values": [
-                        {
-                            "label": "A",
-                            "value": "a",
-                            "shortcut": ""
-                        },
-                        {
-                            "label": "B",
-                            "value": "b",
-                            "shortcut": ""
-                        },
-                        {
-                            "label": "C",
-                            "value": "c",
-                            "shortcut": ""
-                        }
-                    ],
-                    "key": "pregunta",
-                    "type": "radio",
-                    "input": true
-                }
-            ],
-            "input": false,
-            "tableView": false
+        "key": "pregunta",
+        "type": "radio",
+        "input": true
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "P4",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page8",
+    "type": "panel",
+    "label": "Page 8",
+    "components": [
+      {
+        "label": "T&apos;has despertat abans de l&apos;habitual?",
+        "optionsLabelPosition": "right",
+        "inline": false,
+        "tableView": false,
+        "defaultValue": "30MinutsAvans",
+        "values": [
+          {
+            "label": "No",
+            "value": "1",
+            "shortcut": ""
+          },
+          {
+            "label": "30 minuts abans",
+            "value": "2",
+            "shortcut": ""
+          },
+          {
+            "label": "1 hora abans",
+            "value": "3",
+            "shortcut": ""
+          },
+          {
+            "label": "1-2 hores abans",
+            "value": "4",
+            "shortcut": ""
+          },
+          {
+            "label": "mes de 2 hores abans",
+            "value": "5",
+            "shortcut": ""
+          }
+        ],
+        "validate": {
+          "required": true
         },
-        {
-            "title": "Page 5",
-            "label": "Page 5",
-            "type": "panel",
-            "key": "page5",
-            "components": [
-                {
-                    "label": "Hora",
-                    "inputMask": "99:99",
-                    "applyMaskOn": "change",
-                    "tableView": true,
-                    "key": "hora",
-                    "type": "textfield",
-                    "input": true
-                }
-            ],
-            "input": false,
-            "tableView": false
+        "key": "thasDespertatAbansDeLhabitual",
+        "type": "radio",
+        "input": true
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "p5",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page9",
+    "type": "panel",
+    "label": "Page 9",
+    "components": [
+      {
+        "label": "Quin percentatge del temps que estàs al llit te&apos;l passes dormint ",
+        "optionsLabelPosition": "right",
+        "inline": false,
+        "tableView": false,
+        "values": [
+          {
+            "label": "100-91%",
+            "value": "1",
+            "shortcut": ""
+          },
+          {
+            "label": "90-81%",
+            "value": "2",
+            "shortcut": ""
+          },
+          {
+            "label": "80-71%",
+            "value": "3",
+            "shortcut": ""
+          },
+          {
+            "label": "70-61%",
+            "value": "4",
+            "shortcut": ""
+          },
+          {
+            "label": "60% o menys",
+            "value": "5",
+            "shortcut": ""
+          }
+        ],
+        "validate": {
+          "required": true
+        },
+        "key": "quinPercentatgeDelTempsQueEstasAlLlitTelPassesDormint",
+        "type": "radio",
+        "input": true
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "p6",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page1",
+    "type": "panel",
+    "label": "Page 1",
+    "components": [
+      {
+        "label": "Selecciona en cas afirmatiu:",
+        "optionsLabelPosition": "right",
+        "tableView": false,
+        "defaultValue": {
+          "opcio1": false,
+          "opcio2": false,
+          "opcio3": false
+        },
+        "values": [
+          {
+            "label": "He tingut dificultats per conciliar el son",
+            "value": "opcio1",
+            "shortcut": ""
+          },
+          {
+            "label": "He tingut dificultats per mantenir-me adormit",
+            "value": "opcio2",
+            "shortcut": ""
+          },
+          {
+            "label": "He tingut dificultats per acconceguir un somni reparador",
+            "value": "opcio3",
+            "shortcut": ""
+          },
+          {
+            "label": "He notat fatiga o una disminució del meu rendiment sociolaboral",
+            "value": "opcio4",
+            "shortcut": ""
+          }
+        ],
+        "validate": {
+          "required": true
+        },
+        "key": "mutiplesRespostes",
+        "type": "selectboxes",
+        "input": true,
+        "inputType": "checkbox"
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "p7",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page5",
+    "type": "panel",
+    "label": "Page 5",
+    "components": [
+      {
+        "label": "Introdueix l&apos;hora que t&apos;has aixecat",
+        "inputMask": "99:99",
+        "applyMaskOn": "change",
+        "tableView": true,
+        "key": "hora",
+        "type": "textfield",
+        "input": true
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "p8",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page6",
+    "type": "panel",
+    "label": "Page 6",
+    "input": false,
+    "tableView": false,
+    "components": []
+  },
+  {
+    "title": "p9",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page10",
+    "type": "panel",
+    "label": "Page 10",
+    "input": false,
+    "tableView": false,
+    "components": [
+      {
+        "label": "Quins grups d&apos;aliments has consumit per sopar?",
+        "optionsLabelPosition": "right",
+        "tableView": false,
+        "values": [
+          {
+            "label": "Llegums",
+            "value": "llegums",
+            "shortcut": ""
+          },
+          {
+            "label": "Làctics",
+            "value": "lactics",
+            "shortcut": ""
+          },
+          {
+            "label": "Fruita",
+            "value": "fruita",
+            "shortcut": ""
+          },
+          {
+            "label": "Verdura",
+            "value": "verdura",
+            "shortcut": ""
+          },
+          {
+            "label": "Carn",
+            "value": "carn",
+            "shortcut": ""
+          },
+          {
+            "label": "Peix",
+            "value": "peix",
+            "shortcut": ""
+          },
+          {
+            "label": "Productes ensucrats",
+            "value": "productesEnsucrats",
+            "shortcut": ""
+          },
+          {
+            "label": "Peix",
+            "value": "peix",
+            "shortcut": ""
+          },
+          {
+            "label": "Cereals",
+            "value": "cereals",
+            "shortcut": ""
+          },
+          {
+            "label": "Res",
+            "value": "res",
+            "shortcut": ""
+          }
+        ],
+        "key": "quinsGrupsDalimentsHasConsumitPerSopar",
+        "type": "selectboxes",
+        "input": true,
+        "inputType": "checkbox",
+        "defaultValue": {
+          "llegums": false,
+          "lactics": false,
+          "fruita": false,
+          "verdura": false,
+          "carn": false,
+          "peix": false,
+          "productesEnsucrats": false,
+          "cereals": false
         }
+      }
     ]
-}' (submit)="onSubmit($event)"></formio>
+  },
+  {
+    "title": "p10",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page11",
+    "type": "panel",
+    "label": "Page 11",
+    "input": false,
+    "tableView": false,
+    "components": [
+      {
+        "label": "Quan temps has tardat en anar a dormir després de sopar?",
+        "optionsLabelPosition": "right",
+        "inline": false,
+        "tableView": false,
+        "values": [
+          {
+            "label": "menys de 15 minuts",
+            "value": "menysDe15Minuts",
+            "shortcut": ""
+          },
+          {
+            "label": "15-30 minuts",
+            "value": "1530Minuts",
+            "shortcut": ""
+          },
+          {
+            "label": "30 minuts a 1 hora",
+            "value": "30MinutsA1Hora",
+            "shortcut": ""
+          },
+          {
+            "label": "1 a 2 hores",
+            "value": "1A2Hores",
+            "shortcut": ""
+          },
+          {
+            "label": "mes de 2 hores",
+            "value": "mesDe2Hores",
+            "shortcut": ""
+          },
+          {
+            "label": "No he sopat",
+            "value": "noHeSopat",
+            "shortcut": ""
+          }
+        ],
+        "key": "quanTempsHasTardatEnAnarADormirDespresDeSopar",
+        "type": "radio",
+        "input": true
+      }
+    ]
+  },
+  {
+    "title": "p11",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page12",
+    "type": "panel",
+    "label": "Page 12",
+    "input": false,
+    "tableView": false,
+    "components": [
+      {
+        "label": "Has fet esport durant el dia?",
+        "optionsLabelPosition": "right",
+        "inline": false,
+        "tableView": false,
+        "values": [
+          {
+            "label": "No",
+            "value": "no",
+            "shortcut": ""
+          },
+          {
+            "label": "Sí, de baixa intensitat",
+            "value": "siDeBaixaIntensitat",
+            "shortcut": ""
+          },
+          {
+            "label": "Sí, d&apos;intensitat moderada",
+            "value": "siDintensitatModerada",
+            "shortcut": ""
+          },
+          {
+            "label": "Sí, d&apos;alta intensitat",
+            "value": "siDaltaIntensitat",
+            "shortcut": ""
+          }
+        ],
+        "key": "hasFetEsportDurantElDia",
+        "type": "radio",
+        "input": true
+      }
+    ]
+  },
+  {
+    "title": "p12",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "navigateOnEnter": false,
+    "saveOnEnter": false,
+    "scrollToTop": false,
+    "collapsible": false,
+    "key": "page13",
+    "type": "panel",
+    "label": "Page 13",
+    "components": [
+      {
+        "label": "Selecciona la durada de l&apos;activitat física?",
+        "optionsLabelPosition": "right",
+        "inline": false,
+        "tableView": false,
+        "values": [
+          {
+            "label": "menys de 15 minuts",
+            "value": "menysDe15Minuts",
+            "shortcut": ""
+          },
+          {
+            "label": "15-30 minuts",
+            "value": "1530Minuts",
+            "shortcut": ""
+          },
+          {
+            "label": "30 minuts a 1 hora",
+            "value": "30MinutsA1Hora",
+            "shortcut": ""
+          },
+          {
+            "label": "1-2 hores",
+            "value": "12Hores",
+            "shortcut": ""
+          },
+          {
+            "label": "mes de 2 hores",
+            "value": "mesDe2Hores",
+            "shortcut": ""
+          },
+          {
+            "label": "No he fet esport",
+            "value": "noHeFetEsport",
+            "shortcut": ""
+          }
+        ],
+        "key": "seleccionaLaDuradaDeLactivitatFisica",
+        "type": "radio",
+        "input": true
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "Page 13",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "label": "Page 13",
+    "type": "panel",
+    "key": "page14",
+    "components": [
+      {
+        "label": "Has près alguna medicació durant el dia?",
+        "optionsLabelPosition": "right",
+        "tableView": false,
+        "values": [
+          {
+            "label": "No",
+            "value": "no",
+            "shortcut": ""
+          },
+          {
+            "label": "Analgessics",
+            "value": "analgessics",
+            "shortcut": ""
+          },
+          {
+            "label": "Antiácids i/o antiulcerosos",
+            "value": "antiacidsIOAntiulcerosos",
+            "shortcut": ""
+          },
+          {
+            "label": "Antialérgics",
+            "value": "antialergics",
+            "shortcut": ""
+          },
+          {
+            "label": "Antidiarreics i/o laxants",
+            "value": "antidiarreicsIOLaxants",
+            "shortcut": ""
+          },
+          {
+            "label": "Antiinfecciosos",
+            "value": "antiinfecciosos",
+            "shortcut": ""
+          },
+          {
+            "label": "Antiinflamatoris",
+            "value": "antiinflamatoris",
+            "shortcut": ""
+          },
+          {
+            "label": "Antipirètics",
+            "value": "ntipiretics",
+            "shortcut": ""
+          },
+          {
+            "label": "Antitussius i/o mucolítics",
+            "value": "antitussiusIOMucolitics",
+            "shortcut": ""
+          },
+          {
+            "label": "Altres",
+            "value": "altres",
+            "shortcut": ""
+          }
+        ],
+        "key": "hasPresAlgunaMedicacioDurantElDia",
+        "type": "selectboxes",
+        "input": true,
+        "inputType": "checkbox",
+        "defaultValue": {
+          "no": false,
+          "analgessics": false,
+          "antiacidsIOAntiulcerosos": false,
+          "antialergics": false,
+          "antidiarreicsIOLaxants": false,
+          "antiinfecciosos": false,
+          "antiinflamatoris": false,
+          "ntipiretics": true,
+          "antitussiusIOMucolitics": false,
+          "altres": false
+        }
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "Page 14",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "label": "Page 14",
+    "type": "panel",
+    "key": "page15",
+    "components": [
+      {
+        "label": "Has près alguna substancia estimulant abans d&apos;anar a dormir?",
+        "optionsLabelPosition": "right",
+        "tableView": false,
+        "values": [
+          {
+            "label": "No",
+            "value": "d",
+            "shortcut": ""
+          },
+          {
+            "label": "Cafeina",
+            "value": "cafeina",
+            "shortcut": ""
+          },
+          {
+            "label": "Tabac",
+            "value": "tabac",
+            "shortcut": ""
+          },
+          {
+            "label": "Alcohol",
+            "value": "alcohol",
+            "shortcut": ""
+          },
+          {
+            "label": "Cànnabis",
+            "value": "cannabis",
+            "shortcut": ""
+          },
+          {
+            "label": "Cocaïna",
+            "value": "cocaina",
+            "shortcut": ""
+          },
+          {
+            "label": "Amfetamines",
+            "value": "amfetamines",
+            "shortcut": ""
+          },
+          {
+            "label": "Èxtasi (MDMA)",
+            "value": "extasiMdma",
+            "shortcut": ""
+          },
+          {
+            "label": "LSD",
+            "value": "lsd",
+            "shortcut": ""
+          },
+          {
+            "label": "Opiacis",
+            "value": "opiacis",
+            "shortcut": ""
+          },
+          {
+            "label": "Psicofàrmacs",
+            "value": "psicofarmacs",
+            "shortcut": ""
+          },
+          {
+            "label": "Esteroides",
+            "value": "esteroides",
+            "shortcut": ""
+          },
+          {
+            "label": "Altres",
+            "value": "altres",
+            "shortcut": ""
+          }
+        ],
+        "key": "hasPresAlgunaSubstanciaEstimulantAbansDanarADormir",
+        "type": "selectboxes",
+        "input": true,
+        "inputType": "checkbox",
+        "defaultValue": {
+          "d": false
+        }
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "Page 15",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": false
+    },
+    "label": "Page 15",
+    "type": "panel",
+    "key": "page16",
+    "components": [
+      {
+        "label": "Quin ha sigut el teu estat d&apos;ànim durant el dia?",
+        "optionsLabelPosition": "right",
+        "tableView": false,
+        "values": [
+          {
+            "label": "Feliç",
+            "value": "felic",
+            "shortcut": ""
+          },
+          {
+            "label": "Trist",
+            "value": "trist",
+            "shortcut": ""
+          },
+          {
+            "label": "Enfedat",
+            "value": "enfedat",
+            "shortcut": ""
+          },
+          {
+            "label": "Estressat",
+            "value": "estressat",
+            "shortcut": ""
+          },
+          {
+            "label": "Ansios",
+            "value": "ansios",
+            "shortcut": ""
+          },
+          {
+            "label": "Apàtic",
+            "value": "apatic",
+            "shortcut": ""
+          }
+        ],
+        "key": "quinHaSigutElTeuEstatDanimDurantElDia",
+        "type": "selectboxes",
+        "input": true,
+        "inputType": "checkbox"
+      }
+    ],
+    "input": false,
+    "tableView": false
+  },
+  {
+    "title": "Page 16",
+    "breadcrumbClickable": false,
+    "buttonSettings": {
+      "previous": true,
+      "cancel": false,
+      "next": true,
+      "submit": true
+    },
+    "label": "Page 16",
+    "type": "panel",
+    "key": "page17",
+    "components": [
+      {
+        "label": "Què has fet 30 minuts abans d&apos;anar a dormir?",
+        "optionsLabelPosition": "right",
+        "tableView": false,
+        "values": [
+          {
+            "label": "Menjar",
+            "value": "menjar",
+            "shortcut": ""
+          },
+          {
+            "label": "Esport",
+            "value": "esport",
+            "shortcut": ""
+          },
+          {
+            "label": "Mirar el mòbil",
+            "value": "mirarElMobil",
+            "shortcut": ""
+          },
+          {
+            "label": "Mirar la televisió",
+            "value": "mirarLaTelevisio",
+            "shortcut": ""
+          },
+          {
+            "label": "Jugar a videojocs",
+            "value": "jugarAVideojocs",
+            "shortcut": ""
+          },
+          {
+            "label": "Sobre taula",
+            "value": "sobreTaula",
+            "shortcut": ""
+          },
+          {
+            "label": "Activitats d&apos;higiena",
+            "value": "activitatsDhigiena",
+            "shortcut": ""
+          },
+          {
+            "label": "Altres",
+            "value": "altres",
+            "shortcut": ""
+          }
+        ],
+        "key": "queHasFet30MinutsAbansDanarADormir",
+        "type": "selectboxes",
+        "input": true,
+        "inputType": "checkbox"
+      }
+    ],
+    "input": false,
+    "tableView": false
+  }
+]
+}'
+[language]="language"
+[options]='{
+    "i18n": {
+        "ca": {
+            "next":"Següent",
+            "previous": "Anterior",
+            "required": "Cal escollir una opció per continuar",
+            "cancel":"Cancel·lar",
+            "submit": "Registrar",
+            "mask": "El valor entrat no té el format correcte"
+        },
+    },
+}'
+(submit)="onSubmit($event)"
+(ready)="onReady($event)"></formio>

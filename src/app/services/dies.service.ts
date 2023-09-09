@@ -10,7 +10,6 @@ export class DiesService {
 
   constructor() { 
     this.data = this.getData();
-    console.log(this.data);
     this.storeData();
   }
 
@@ -38,8 +37,6 @@ export class DiesService {
   public existeixAvui(): boolean {
     let avui = this.avui();
     let dia = this.data.dies.find(a=>a.dia==avui);
-    console.log(dia);
-    console.log(!!dia); 
     return !!dia;
   }
 

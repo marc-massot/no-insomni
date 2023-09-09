@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { DiesService } from '../services/dies.service';
 import { Router } from '@angular/router';
+import { FormioBaseComponent, FormioEvent } from '@formio/angular';
 
 @Component({
   selector: 'app-nou-dia',
@@ -11,15 +12,22 @@ export class NouDiaComponent implements OnInit {
   constructor(private diesService: DiesService, private router: Router) {}
 
   ngOnInit() {
+    this.language.next("ca");
   }
 
   onSubmit(submission: any) {
     console.log(submission); // This will print out the full submission from Form.io API.
-    this.diesService.saveNouDia(submission);
+    this.diesService.saveNouDia(submission.data);
     this.router.navigate(['/inici']);
   }
 
   diaDuplicat(): boolean {
     return this.diesService.existeixAvui();
+  }
+
+  language: EventEmitter<string> = new EventEmitter();
+
+  onReady(f: FormioBaseComponent) {
+    f.language?.next("ca");
   }
 }
