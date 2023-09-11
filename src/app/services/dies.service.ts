@@ -196,9 +196,10 @@ export class DiesService {
               "validate": {
                 "required": true
               },
-              "key": "01-unicaResposta",
+              "key": "01-comDeSatisfetEstas",
               "type": "radio",
-              "input": true
+              "input": true,
+              "defaultValue": 1
             }
           ],
           "input": false,
@@ -257,7 +258,8 @@ export class DiesService {
               },
               "key": "02-quanDeTempsHasTrigatAAdormirTe",
               "type": "radio",
-              "input": true
+              "input": true,
+              "defaultValue": 1
             }
           ],
           "input": false,
@@ -316,7 +318,8 @@ export class DiesService {
               },
               "key": "03-pregunta",
               "type": "radio",
-              "input": true
+              "input": true,
+              "defaultValue": 1
             }
           ],
           "input": false,
@@ -343,7 +346,7 @@ export class DiesService {
               "optionsLabelPosition": "right",
               "inline": false,
               "tableView": false,
-              "defaultValue": "30MinutsAvans",
+              "defaultValue": 1,
               "values": [
                 {
                   "label": "No",
@@ -435,7 +438,8 @@ export class DiesService {
               },
               "key": "05-quinPercentatgeDelTempsQueEstasAlLlitTelPassesDormint",
               "type": "radio",
-              "input": true
+              "input": true,
+              "defaultValue": 1
             }
           ],
           "input": false,
@@ -493,7 +497,7 @@ export class DiesService {
                   "shortcut": ""
                 }
               ],
-              "key": "06-mutiplesRespostes",
+              "key": "06-comHeDormit",
               "type": "selectboxes",
               "input": true,
               "inputType": "checkbox"
@@ -520,75 +524,23 @@ export class DiesService {
           "components": [
             {
               "label": "Introdueix l&apos;hora que t&apos;has aixecat",
-              "format": " hh:mm",
-              "tableView": false,
-              "enableDate": false,
-              "datePicker": {
-                "disableWeekends": false,
-                "disableWeekdays": false
-              },
-              "timePicker": {
-                "showMeridian": false
-              },
-              "enableMinDateInput": false,
-              "enableMaxDateInput": false,
-              "key": "07-dateTime",
-              "type": "datetime",
-              "input": true,
-              "widget": {
-                "type": "calendar",
-                "displayInTimezone": "viewer",
-                "locale": "en",
-                "useLocaleSettings": false,
-                "allowInput": true,
-                "mode": "single",
-                "enableTime": true,
-                "noCalendar": true,
-                "format": " hh:mm",
-                "hourIncrement": 1,
-                "minuteIncrement": 1,
-                "time_24hr": true,
-                "minDate": null,
-                "disableWeekends": false,
-                "disableWeekdays": false,
-                "maxDate": null
-              }
+              "inputMask": "99:99",
+              "displayMask": "99:99",
+              "applyMaskOn": "change",
+              "tableView": true,
+              "key": "07-introdueixLhoraQueThasAixecat",
+              "type": "textfield",
+              "input": true
             },
             {
               "label": "Introdueix l&apos;hora que has anat a dormir",
-              "format": "hh:mm",
-              "tableView": false,
-              "enableDate": false,
-              "datePicker": {
-                "disableWeekends": false,
-                "disableWeekdays": false
-              },
-              "timePicker": {
-                "showMeridian": false
-              },
-              "enableMinDateInput": false,
-              "enableMaxDateInput": false,
+              "inputMask": "99:99",
+              "displayMask": "99:99",
+              "applyMaskOn": "change",
+              "tableView": true,
               "key": "08-introdueixLHoraQueTHasAixecat",
-              "type": "datetime",
-              "input": true,
-              "widget": {
-                "type": "calendar",
-                "displayInTimezone": "viewer",
-                "locale": "en",
-                "useLocaleSettings": false,
-                "allowInput": true,
-                "mode": "single",
-                "enableTime": true,
-                "noCalendar": true,
-                "format": "hh:mm",
-                "hourIncrement": 1,
-                "minuteIncrement": 1,
-                "time_24hr": true,
-                "minDate": null,
-                "disableWeekends": false,
-                "disableWeekdays": false,
-                "maxDate": null
-              }
+              "type": "textfield",
+              "input": true
             }
           ],
           "input": false,
@@ -738,7 +690,8 @@ export class DiesService {
               ],
               "key": "10-quanTempsHasTardatEnAnarADormirDespresDeSopar",
               "type": "radio",
-              "input": true
+              "input": true,
+              "defaultValue": "menysDe15Minuts"
             }
           ]
         },
@@ -789,7 +742,8 @@ export class DiesService {
               ],
               "key": "11-hasFetEsportDurantElDia",
               "type": "radio",
-              "input": true
+              "input": true,
+              "defaultValue": "no"
             }
           ]
         },
@@ -848,7 +802,8 @@ export class DiesService {
               ],
               "key": "12-seleccionaLaDuradaDeLactivitatFisica",
               "type": "radio",
-              "input": true
+              "input": true,
+              "defaultValue": "menysDe15Minuts"
             }
           ],
           "input": false,
