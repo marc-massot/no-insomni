@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DiesService } from '../services/dies.service';
-import { Setmana } from '../data/dies';
-import { ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
+import { Dia, DiesSetmana, Setmana } from '../data/dies';
+import { ChartData, ChartEvent, ChartOptions } from 'chart.js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
     cutout: "75%",
   };
 
-  constructor(private diesService: DiesService) {}
+  constructor(private diesService: DiesService, private router: Router) {}
 
   minDies = 30;
 
@@ -146,6 +147,23 @@ export class HomeComponent implements OnInit {
        }
       }
      }
+    }
+
+    keepOrder = (a: any,b: any): number => {
+      return 0;
+    }
+
+    onDailyScoreClick(dia: DiesSetmana) {
+      console.log('onDailyScoreClick',dia);
+      let d: Dia = (this.setmana? this.setmana[dia] : undefined) as Dia;
+      if (d && d.data) {
+        console.log('onDailyScoreClick dia',d.dia);
+        this.router.navigate(['dia',d.dia]);
+      }
+    }
+
+    onNouDia() {
+      this.router.navigate(['nou-dia']);
     }
 
     // events

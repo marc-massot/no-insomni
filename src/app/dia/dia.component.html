@@ -1,0 +1,30 @@
+<div class="my-3 p-3 bg-body rounded shadow-sm"  (touchstart)="onSwipe($event, 'start')"
+(touchend)="onSwipe($event, 'end')">
+    <div class="position-relative">
+        <div class="position-absolute top-0 end-0">
+            <button type="button" class="btn-close" aria-label="Close" routerLink="/inici"></button>
+        </div>
+        <h5 class="border-bottom pb-2 mb-0">Respostes del {{dia?.dia}}</h5>
+    </div>    
+    <div class="d-flex text-body-secondary pt-3" *ngFor="let item of config | keyvalue: keepOrder">
+    <div class="pb-3 mb-0 small lh-sm border-bottom">
+        <strong class="d-block text-gray-dark">{{ getPregunta(item.key) }}</strong>
+        <p *ngIf="getPreguntaTipus(item.key)=='opcio'">{{ getRespostaOpcio(item.key) }}</p>
+        <p *ngIf="getPreguntaTipus(item.key)=='valor'">{{ getRespostaValor(item.key) }}</p>
+        <ul *ngIf="getPreguntaTipus(item.key)=='multiple'">
+            <li *ngFor="let resp of getRespostaMultiple(item.key)">{{ resp }}</li>
+        </ul>
+       </div>
+    </div>
+    <small class="d-block text-end mt-3">
+        <div class="x_panel_buttons row text-center">
+            <div class="col-1 text-start">
+                <button type="button" class="btn btn-outline-primary btn-sm" [disabled]="!antDia" (click)="onAnteriorDia()">&lt;</button>
+            </div>
+            <div class="col text-end">
+                <button type="button" class="btn btn-outline-primary btn-sm" [disabled]="!segDia" (click)="onSeguentDia()">&gt;</button>
+            </div>
+        </div>
+    </small>
+</div>
+

@@ -11,12 +11,14 @@ import { HomeComponent } from './home/home.component';
 import { NgbCollapse, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgChartsModule } from 'ng2-charts';
+import { DiaComponent } from './dia/dia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NouDiaComponent,
-    HomeComponent
+    HomeComponent,
+    DiaComponent
   ],
   imports: [
     BrowserModule,

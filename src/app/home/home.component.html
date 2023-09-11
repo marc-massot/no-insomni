@@ -1,5 +1,34 @@
 <div class="row row-cols-1 row-cols-sm-2 inici">
-    <div class="inici-superior col m-0 border-0">
+    <div class="col my-3 p-3 bg-body rounded shadow-sm">
+        <div class="container">
+            <div class="x_panel row">
+                <div class="col">
+                    <div class="container score-week">
+                        <div class="row score-days row-cols-7" (touchstart)="swipe($event, 'start')"
+                            (touchend)="swipe($event, 'end')">
+                            <div class="col" *ngFor="let item of setmana | keyvalue: keepOrder">
+                                <div class="daily-score" (click)="onDailyScoreClick(item.key)">
+                                    <h2 class="day">{{ item.key.charAt(0).toUpperCase() + item.key.slice(1) }} <em>{{ item.value.dia.slice(8,10) }}</em></h2>
+                                    <h3 class="score"><img *ngIf="item.value.score > 0" style="width: 30px" src="assets/face-{{item.value.score}}.png"/><span *ngIf="item.value.score == 0">-</span></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x_panel_buttons row text-center p-2">
+                <div class="col-1 text-start">
+                    <button type="button" class="btn btn-outline-primary btn-sm" (click)="anteriorSetmana()"
+                        [disabled]="!teAnterior">&lt;</button>
+                </div>
+                <div class="col text-end">
+                    <button type="button" class="btn btn-outline-primary btn-sm" (click)="seguentSetmana()"
+                        [disabled]="!teSeguent">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inici-superior col m-0 border-0 my-3 p-3 bg-body rounded shadow-sm" (click)="onNouDia()">
         <div class="position-relative">
             <div class="position-absolute top-0 h-100 start-50 translate-middle-x">
                 <canvas baseChart class="chart" [data]="doughnutChartData" type="doughnut"
@@ -26,69 +55,9 @@
             </div>
         </div>
     </div>
-    <div class="col">
-        <div class="container">
-            <div class="x_panel row">
-                <div class="col">
-                    <div class="container score-week">
-                        <div class="row score-days row-cols-7" (touchstart)="swipe($event, 'start')"
-                            (touchend)="swipe($event, 'end')">
-                            <div class="col">
-                                <div class="daily-score">
-                                    <h2 class="day">Dl <em>{{ setmana && setmana.dl? setmana.dl.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score"><img *ngIf="setmana && setmana.dl && setmana.dl.score > 0" style="width: 30px" src="assets/face-{{setmana.dl.score}}.png"/><span *ngIf="setmana && setmana.dl && setmana.dl.score == 0">-</span></h3>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="daily-score">
-                                    <h2 class="day">Dm <em>{{ setmana && setmana.dm? setmana.dm.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score"><img *ngIf="setmana && setmana.dm && setmana.dm.score > 0" style="width: 30px" src="assets/face-{{setmana.dm.score}}.png"/><span *ngIf="setmana && setmana.dm && setmana.dm.score == 0">-</span></h3>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="daily-score">
-                                    <h2 class="day">Dc <em>{{ setmana && setmana.dc? setmana.dc.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score"><img *ngIf="setmana && setmana.dc && setmana.dc.score > 0" style="width: 30px" src="assets/face-{{setmana.dc.score}}.png"/><span *ngIf="setmana && setmana.dc && setmana.dc.score == 0">-</span></h3>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="daily-score">
-                                    <h2 class="day">Dj <em>{{ setmana && setmana.dj? setmana.dj.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score"><img *ngIf="setmana && setmana.dj && setmana.dj.score > 0" style="width: 30px" src="assets/face-{{setmana.dj.score}}.png"/><span *ngIf="setmana && setmana.dj && setmana.dj.score == 0">-</span></h3>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="daily-score">
-                                    <h2 class="day">Dv <em>{{ setmana && setmana.dv? setmana.dv.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score"><img *ngIf="setmana && setmana.dv && setmana.dv.score > 0" style="width: 30px" src="assets/face-{{setmana.dv.score}}.png"/><span *ngIf="setmana && setmana.dv && setmana.dv.score == 0">-</span></h3>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="daily-score">
-                                    <h2 class="day">Ds <em>{{ setmana && setmana.ds? setmana.ds.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score"><img *ngIf="setmana && setmana.ds && setmana.ds.score > 0" style="width: 30px" src="assets/face-{{setmana.ds.score}}.png"/><span *ngIf="setmana && setmana.ds && setmana.ds.score == 0">-</span></h3>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="daily-score">
-                                    <h2 class="day">Dg <em>{{ setmana && setmana.dg? setmana.dg.dia.slice(8,10): "" }}</em></h2>
-                                    <h3 class="score"><img *ngIf="setmana && setmana.dg && setmana.dg.score > 0" style="width: 30px" src="assets/face-{{setmana.dg.score}}.png"/><span *ngIf="setmana && setmana.dg && setmana.dg.score == 0">-</span></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="x_panel_buttons row text-center">
-                <div class="col text-end">
-                    <button type="button" class="btn btn-outline-primary btn-sm" (click)="anteriorSetmana()"
-                        [disabled]="!teAnterior">&lt;</button>
-                </div>
-                <div class="col text-start">
-                    <button type="button" class="btn btn-outline-primary btn-sm" (click)="seguentSetmana()"
-                        [disabled]="!teSeguent">&gt;</button>
-                </div>
-            </div>
-        </div>
+    <div class="col p-3 bg-body rounded shadow-sm">
+        <small>
+            Aquesta aplicació calcularà el percentatge de posibilitats que tinguis insomni un cop s'hagin registrat 30 dies de dades
+        </small>
     </div>
 </div>

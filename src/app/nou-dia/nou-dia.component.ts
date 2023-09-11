@@ -9,10 +9,13 @@ import { FormioBaseComponent, FormioEvent } from '@formio/angular';
   styleUrls: ['./nou-dia.component.scss']
 })
 export class NouDiaComponent implements OnInit {
+  formulari: any;
+
   constructor(private diesService: DiesService, private router: Router) {}
 
   ngOnInit() {
     this.language.next("ca");
+    this.formulari = this.diesService.getFormulari();
   }
 
   onSubmit(submission: any) {
@@ -30,4 +33,5 @@ export class NouDiaComponent implements OnInit {
   onReady(f: FormioBaseComponent) {
     f.language?.next("ca");
   }
+
 }

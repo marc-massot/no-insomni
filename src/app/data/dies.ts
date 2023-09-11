@@ -18,3 +18,6 @@ export interface Setmana {
     ds: Dia;
     dg: Dia;
 }
+
+export type DiesSetmana = keyof Setmana;
+
