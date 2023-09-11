@@ -9,7 +9,7 @@
                             <div class="col" *ngFor="let item of setmana | keyvalue: keepOrder">
                                 <div class="daily-score" (click)="onDailyScoreClick(item.key)">
                                     <h2 class="day">{{ item.key.charAt(0).toUpperCase() + item.key.slice(1) }} <em>{{ item.value.dia.slice(8,10) }}</em></h2>
-                                    <h3 class="score"><img *ngIf="item.value.score > 0" style="width: 30px" src="assets/face-{{item.value.score}}.png"/><span *ngIf="item.value.score == 0">-</span></h3>
+                                    <h3 class="score"><img *ngIf="item.value.score > 0" style="width: 30px" src="{{imatge(item.value.score)}}"/><span *ngIf="item.value.score == 0">-</span></h3>
                                 </div>
                             </div>
                         </div>
@@ -42,22 +42,25 @@
 
                 <div class="dies w-100 text-center fs-6">
                     Encara cal registrar   
-                    <span *ngIf="numDies < minDies - 1 ">{{ 30 - numDies }} dies</span>
+                    <span *ngIf="numDies < minDies - 1 ">{{ minDies - numDies }} dies</span>
                     <span *ngIf="numDies == minDies - 1 ">un dia més</span>
                     per veure el diagnosis
                 </div>
             </div>
             <div *ngIf="numDies >= minDies"  class="centre position-absolute top-50 start-50 translate-middle">
                 <div class="puntuacio fs-1 text-center">
-                    {{ puntuacio*100/50 | number: '1.1-1' }} <span class="sobre fs-5">%</span>
+                    {{ perc(puntuacio) | number: '1.1-1' }} <span class="sobre fs-5">%</span>
                 </div>
                 <div class="dies w-100 text-center fs-6">Després de {{ numDies }} dies registrats</div>
             </div>
         </div>
     </div>
     <div class="col p-3 bg-body rounded shadow-sm">
-        <small>
+        <small *ngIf="numDies < minDies">
             Aquesta aplicació calcularà el percentatge de posibilitats que tinguis insomni un cop s'hagin registrat 30 dies de dades
+        </small>
+        <small *ngIf="numDies >= minDies">
+            Aquest és el percentatge de possibilitats que tinguis insomni en base a les dades que has facilitat de {{numDies}} dies. Cal que consultis a un professional per un disgnosis definitiu.
         </small>
     </div>
 </div>

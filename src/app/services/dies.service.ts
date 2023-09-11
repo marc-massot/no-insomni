@@ -75,8 +75,40 @@ export class DiesService {
     return ret as Setmana;
   }
 
-  private calculaScore(formData: any): number {
-    return formData['01-unicaResposta'];
+  private indexos(formData: any): any {
+    let ret:any = {};
+    for(const property in formData) {
+      ret[property.slice(0,2)] = property;
+    }
+    return ret;
+  }
+
+  public calculaScore(formData: any): number {
+    const indexos: any = this.indexos(formData)
+    let ret = formData[indexos['01']];
+    ret += formData[indexos['02']];
+    ret += formData[indexos['03']];
+    ret += formData[indexos['04']];
+    ret += formData[indexos['05']];
+    const valors6 = formData[indexos['06']];
+    for(const el in valors6) {
+      ret += !!valors6[el]?5:1;
+    } 
+    return ret;
+  }
+
+  public maxScore: number = 45;
+  public minScore:number = 9;
+  
+  public calculaImatge(val: number): string {
+    if (val<9) return 'assets/face-'.concat(val.toString()).concat('.png');
+    const divisor = (this.maxScore - this.minScore +1) / 5;
+    let val1_5 = Math.trunc((val -this.minScore)/divisor)+1;
+    return 'assets/face-'.concat(val1_5.toString()).concat('.png')
+  }
+
+  public calculaPerc(val: number) {
+    return (val-this.minScore)*100/(this.maxScore-this.minScore);
   }
 
   public avui(): string {

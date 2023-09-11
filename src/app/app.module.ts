@@ -8,7 +8,7 @@ import { NouDiaComponent } from './nou-dia/nou-dia.component';
 import { FormioModule } from '@formio/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { NgbCollapse, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapse, NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgChartsModule } from 'ng2-charts';
 import { DiaComponent } from './dia/dia.component';
@@ -31,7 +31,7 @@ import { DiaComponent } from './dia/dia.component';
       registrationStrategy: 'registerWhenStable:30000'
     }),
     BrowserAnimationsModule,
-    NgbModule, NgbAlertModule, NgbCollapse, NgChartsModule
+    NgbModule, NgbAlertModule, NgbCollapse, NgChartsModule, NgbCollapseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
