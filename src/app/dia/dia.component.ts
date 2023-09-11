@@ -35,7 +35,7 @@ export class DiaComponent implements OnInit {
   }
 
   getPregunta(key: any) : string {
-    return this.config[key].label;
+    return this.config[key].label.replaceAll("&apos;","'");
   }
 
   getPreguntaTipus(key: any) : string {
@@ -53,7 +53,7 @@ export class DiaComponent implements OnInit {
   getRespostaOpcio(key: any) : string {
     const val = this.dia? this.dia.data[key] : undefined;
     
-    return this.config[key].values[val];
+    return this.config[key].values[val]?this.config[key].values[val].replaceAll("&apos;","'"):"";
   }
 
   getRespostaValor(key: any) : string {
@@ -65,7 +65,7 @@ export class DiaComponent implements OnInit {
   getRespostaMultiple(key: any) : string[] {
     const val = this.dia? this.dia.data[key] : undefined;
     
-    return Object.keys(val).filter(k=>val[k]).map(k=>this.config[key].values[k]);
+    return Object.keys(val).filter(k=>val[k]).map(k=>this.config[key].values[k].replaceAll("&apos;","'"));
   }
 
   onAnteriorDia() {
