@@ -14,18 +14,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
     .wizard-page 
     {
-        .formio-component {
-            background-color: rgb(240,240,240);
-            padding: 20px;
-            margin: 10px;
-            .col-form-label {
-                font-weight: bolder;
-            }
-            .form-check {
-                margin-left: 10px;
-            }
-        
+        background-color: rgb(240,240,240);
+        padding: 20px;
+        margin: 10px;
+        .col-form-label {
+            font-weight: bolder;
         }
+        .form-check {
+            margin-left: 10px;
+        }
+    
     }
 
     .formio-wizard-nav-container {

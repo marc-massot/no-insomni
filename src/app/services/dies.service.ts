@@ -286,6 +286,7 @@ export class DiesService {
               "optionsLabelPosition": "right",
               "inline": false,
               "tableView": false,
+              "defaultValue": 1,
               "values": [
                 {
                   "label": "Cap",
@@ -316,10 +317,9 @@ export class DiesService {
               "validate": {
                 "required": true
               },
-              "key": "03-pregunta",
+              "key": "03-quantesVegadesTHasDespertat",
               "type": "radio",
-              "input": true,
-              "defaultValue": 1
+              "input": true
             }
           ],
           "input": false,
@@ -462,7 +462,7 @@ export class DiesService {
           "label": "Page 1",
           "components": [
             {
-              "label": "Selecciona en cas afirmatiu:",
+              "label": "Quins símptomes que has experimentat:",
               "optionsLabelPosition": "right",
               "tableView": false,
               "defaultValue": {
@@ -565,6 +565,48 @@ export class DiesService {
           "tableView": false,
           "components": [
             {
+              "label": "Quan temps has tardat en anar a dormir després de sopar?",
+              "optionsLabelPosition": "right",
+              "inline": false,
+              "tableView": false,
+              "defaultValue": "noHeSopat",
+              "values": [
+                {
+                  "label": "No he sopat",
+                  "value": "noHeSopat",
+                  "shortcut": ""
+                },
+                {
+                  "label": "menys de 15 minuts",
+                  "value": "menysDe15Minuts",
+                  "shortcut": ""
+                },
+                {
+                  "label": "15-30 minuts",
+                  "value": "1530Minuts",
+                  "shortcut": ""
+                },
+                {
+                  "label": "30 minuts a 1 hora",
+                  "value": "30MinutsA1Hora",
+                  "shortcut": ""
+                },
+                {
+                  "label": "1 a 2 hores",
+                  "value": "1A2Hores",
+                  "shortcut": ""
+                },
+                {
+                  "label": "mes de 2 hores",
+                  "value": "mesDe2Hores",
+                  "shortcut": ""
+                }
+              ],
+              "key": "09-quanTempsHasTardatEnAnarADormirDespresDeSopar1",
+              "type": "radio",
+              "input": true
+            },
+            {
               "label": "Quins grups d&apos;aliments has consumit per sopar?",
               "optionsLabelPosition": "right",
               "tableView": false,
@@ -619,79 +661,17 @@ export class DiesService {
                   "label": "Cereals",
                   "value": "cereals",
                   "shortcut": ""
-                },
-                {
-                  "label": "No he sopat",
-                  "value": "res",
-                  "shortcut": ""
                 }
               ],
-              "key": "09-quinsGrupsDalimentsHasConsumitPerSopar",
+              "key": "10-quinsGrupsDalimentsHasConsumitPerSopar",
+              "conditional": {
+                "show": false,
+                "when": "09-quanTempsHasTardatEnAnarADormirDespresDeSopar1",
+                "eq": "noHeSopat"
+              },
               "type": "selectboxes",
               "input": true,
               "inputType": "checkbox"
-            }
-          ]
-        },
-        {
-          "title": "p10",
-          "breadcrumbClickable": true,
-          "buttonSettings": {
-            "previous": true,
-            "cancel": false,
-            "next": true
-          },
-          "navigateOnEnter": false,
-          "saveOnEnter": false,
-          "scrollToTop": false,
-          "collapsible": false,
-          "key": "page11",
-          "type": "panel",
-          "label": "Page 11",
-          "input": false,
-          "tableView": false,
-          "components": [
-            {
-              "label": "Quan temps has tardat en anar a dormir després de sopar?",
-              "optionsLabelPosition": "right",
-              "inline": false,
-              "tableView": false,
-              "values": [
-                {
-                  "label": "menys de 15 minuts",
-                  "value": "menysDe15Minuts",
-                  "shortcut": ""
-                },
-                {
-                  "label": "15-30 minuts",
-                  "value": "1530Minuts",
-                  "shortcut": ""
-                },
-                {
-                  "label": "30 minuts a 1 hora",
-                  "value": "30MinutsA1Hora",
-                  "shortcut": ""
-                },
-                {
-                  "label": "1 a 2 hores",
-                  "value": "1A2Hores",
-                  "shortcut": ""
-                },
-                {
-                  "label": "mes de 2 hores",
-                  "value": "mesDe2Hores",
-                  "shortcut": ""
-                },
-                {
-                  "label": "No he sopat",
-                  "value": "noHeSopat",
-                  "shortcut": ""
-                }
-              ],
-              "key": "10-quanTempsHasTardatEnAnarADormirDespresDeSopar",
-              "type": "radio",
-              "input": true,
-              "defaultValue": "menysDe15Minuts"
             }
           ]
         },
@@ -744,30 +724,13 @@ export class DiesService {
               "type": "radio",
               "input": true,
               "defaultValue": "no"
-            }
-          ]
-        },
-        {
-          "title": "p12",
-          "breadcrumbClickable": true,
-          "buttonSettings": {
-            "previous": true,
-            "cancel": false,
-            "next": true
-          },
-          "navigateOnEnter": false,
-          "saveOnEnter": false,
-          "scrollToTop": false,
-          "collapsible": false,
-          "key": "page13",
-          "type": "panel",
-          "label": "Page 13",
-          "components": [
+            },
             {
               "label": "Selecciona la durada de l&apos;activitat física?",
               "optionsLabelPosition": "right",
               "inline": false,
               "tableView": false,
+              "defaultValue": "menysDe15Minuts",
               "values": [
                 {
                   "label": "menys de 15 minuts",
@@ -793,21 +756,18 @@ export class DiesService {
                   "label": "més de 2 hores",
                   "value": "mesDe2Hores",
                   "shortcut": ""
-                },
-                {
-                  "label": "No he fet esport",
-                  "value": "noHeFetEsport",
-                  "shortcut": ""
                 }
               ],
-              "key": "12-seleccionaLaDuradaDeLactivitatFisica",
+              "key": "12-seleccionaLaDuradaDeLactivitatFisica1",
+              "conditional": {
+                "show": false,
+                "when": "11-hasFetEsportDurantElDia",
+                "eq": "no"
+              },
               "type": "radio",
-              "input": true,
-              "defaultValue": "menysDe15Minuts"
+              "input": true
             }
-          ],
-          "input": false,
-          "tableView": false
+          ]
         },
         {
           "title": "Page 13",
@@ -821,15 +781,44 @@ export class DiesService {
           "key": "page14",
           "components": [
             {
-              "label": "Has près alguna medicació durant el dia?",
+              "label": "Has pres algún medicament durant el dia?",
               "optionsLabelPosition": "right",
+              "inline": false,
               "tableView": false,
+              "defaultValue": "no",
               "values": [
                 {
                   "label": "No",
                   "value": "no",
                   "shortcut": ""
                 },
+                {
+                  "label": "Sí",
+                  "value": "si",
+                  "shortcut": ""
+                }
+              ],
+              "key": "13-1-hasPresAlgunMedicament",
+              "type": "radio",
+              "input": true
+            },
+            {
+              "label": "Quina medicació has pres durant el dia?",
+              "optionsLabelPosition": "right",
+              "tableView": false,
+              "defaultValue": {
+                "no": false,
+                "analgessics": false,
+                "antiacidsIOAntiulcerosos": false,
+                "antialergics": false,
+                "antidiarreicsIOLaxants": false,
+                "antiinfecciosos": false,
+                "antiinflamatoris": false,
+                "antipiretics": false,
+                "antitussiusIOMucolitics": false,
+                "altres": false
+              },
+              "values": [
                 {
                   "label": "Analgessics",
                   "value": "analgessics",
@@ -876,22 +865,15 @@ export class DiesService {
                   "shortcut": ""
                 }
               ],
-              "key": "13-hasPresAlgunaMedicacioDurantElDia",
+              "key": "13-2-quinaMedicacioHasPresDurantElDia",
+              "conditional": {
+                "show": false,
+                "when": "13-1-hasPresAlgunMedicament",
+                "eq": "no"
+              },
               "type": "selectboxes",
               "input": true,
-              "inputType": "checkbox",
-              "defaultValue": {
-                "no": false,
-                "analgessics": false,
-                "antiacidsIOAntiulcerosos": false,
-                "antialergics": false,
-                "antidiarreicsIOLaxants": false,
-                "antiinfecciosos": false,
-                "antiinflamatoris": false,
-                "antipiretics": false,
-                "antitussiusIOMucolitics": false,
-                "altres": false
-              }
+              "inputType": "checkbox"
             }
           ],
           "input": false,
@@ -911,13 +893,45 @@ export class DiesService {
             {
               "label": "Has près alguna substancia estimulant abans d&apos;anar a dormir?",
               "optionsLabelPosition": "right",
+              "inline": false,
               "tableView": false,
+              "defaultValue": "no",
               "values": [
                 {
                   "label": "No",
-                  "value": "d",
+                  "value": "no",
                   "shortcut": ""
                 },
+                {
+                  "label": "Sí",
+                  "value": "si",
+                  "shortcut": ""
+                }
+              ],
+              "key": "14-1-hasPresAlgunaSubstanciaEstimulantAbansDanarADormir",
+              "type": "radio",
+              "input": true
+            },
+            {
+              "label": "Quina substància estimulant abans d&apos;anar a dormir?",
+              "optionsLabelPosition": "right",
+              "tableView": false,
+              "defaultValue": {
+                "d": false,
+                "cafeina": false,
+                "tabac": false,
+                "alcohol": false,
+                "cannabis": false,
+                "cocaina": false,
+                "amfetamines": false,
+                "extasiMdma": false,
+                "lsd": false,
+                "opiacis": false,
+                "psicofarmacs": false,
+                "esteroides": false,
+                "altres": false
+              },
+              "values": [
                 {
                   "label": "Cafeina",
                   "value": "cafeina",
@@ -979,25 +993,15 @@ export class DiesService {
                   "shortcut": ""
                 }
               ],
-              "key": "14-hasPresAlgunaSubstanciaEstimulantAbansDanarADormir",
+              "key": "14-2-quinaSubstanciaEstimulantAbansDanarADormir",
+              "conditional": {
+                "show": false,
+                "when": "14-1-hasPresAlgunaSubstanciaEstimulantAbansDanarADormir",
+                "eq": "no"
+              },
               "type": "selectboxes",
               "input": true,
-              "inputType": "checkbox",
-              "defaultValue": {
-                "d": false,
-                "cafeina": false,
-                "tabac": false,
-                "alcohol": false,
-                "cannabis": false,
-                "cocaina": false,
-                "amfetamines": false,
-                "extasiMdma": false,
-                "lsd": false,
-                "opiacis": false,
-                "psicofarmacs": false,
-                "esteroides": false,
-                "altres": false
-              }
+              "inputType": "checkbox"
             }
           ],
           "input": false,

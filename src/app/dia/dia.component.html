@@ -6,15 +6,17 @@
         </div>
         <h5 class="border-bottom pb-2 mb-0">Respostes del {{dia?.dia}}</h5>
     </div>    
-    <div class="d-flex text-body-secondary pt-3" *ngFor="let item of config | keyvalue: keepOrder">
-    <div class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">{{ getPregunta(item.key) }}</strong>
-        <p *ngIf="getPreguntaTipus(item.key)=='opcio'">{{ getRespostaOpcio(item.key) }}</p>
-        <p *ngIf="getPreguntaTipus(item.key)=='valor'">{{ getRespostaValor(item.key) }}</p>
-        <ul *ngIf="getPreguntaTipus(item.key)=='multiple'">
-            <li *ngFor="let resp of getRespostaMultiple(item.key)">{{ resp }}</li>
-        </ul>
-       </div>
+    <div  *ngFor="let item of config | keyvalue: keepOrder">
+        <div class="d-flex text-body-secondary pt-3" *ngIf="existeixResposta(item.key) && (getPreguntaTipus(item.key)!='multiple' || getRespostaMultiple(item.key).length>0)">
+            <div class="pb-3 mb-0 small lh-sm border-bottom">
+                <strong class="d-block text-gray-dark">{{ getPregunta(item.key) }}</strong>
+                <p *ngIf="getPreguntaTipus(item.key)=='opcio'">{{ getRespostaOpcio(item.key) }}</p>
+                <p *ngIf="getPreguntaTipus(item.key)=='valor'">{{ getRespostaValor(item.key) }}</p>
+                <ul *ngIf="getPreguntaTipus(item.key)=='multiple'">
+                    <li *ngFor="let resp of getRespostaMultiple(item.key)">{{ resp }}</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <small class="d-block text-end mt-3">
         <div class="x_panel_buttons row text-center">

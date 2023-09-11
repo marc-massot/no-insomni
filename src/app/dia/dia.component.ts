@@ -50,6 +50,10 @@ export class DiaComponent implements OnInit {
     return "valor";
   }
 
+  existeixResposta(key: any):boolean {
+    return this.dia && this.dia.data[key];
+  }
+
   getRespostaOpcio(key: any) : string {
     const val = this.dia? this.dia.data[key] : undefined;
     
